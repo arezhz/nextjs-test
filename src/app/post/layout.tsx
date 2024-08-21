@@ -1,5 +1,8 @@
+import { Metadata } from "next";
 import { Divider } from "primereact/divider";
-
+export const metadata: Metadata = {
+  title: "Posts",
+};
 export default function Layout({
   children,
 }: Readonly<{
