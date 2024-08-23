@@ -6,3 +6,4 @@ export async function getPosts(): Promise<IPost[]> {
   });
   return data.json();
 }
+

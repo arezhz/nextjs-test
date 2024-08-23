@@ -1,6 +1,6 @@
 import { Divider } from "primereact/divider";
 import PostCard from "./post-card";
-import { getPosts } from "./services/post-api";
+import { getPosts } from "./services/post-api.service";
 import { IPost } from "./models/i-post";
 
 export default async function Post() {
