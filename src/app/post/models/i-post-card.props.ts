@@ -1,5 +1,5 @@
-import { IPost } from "./i-post";
+import { IPostDto } from "./i-post.dto";
 
 export interface IPostCardProps {
-    data: IPost
+    data: IPostDto
 }

@@ -1,10 +1,10 @@
 import { Divider } from "primereact/divider";
 import PostCard from "./post-card";
 import { getPosts } from "./services/post-api.service";
-import { IPost } from "./models/i-post";
+import { IPostDto } from "./models/i-post.dto";
 
 export default async function Post() {
-  const data: IPost[] = await getPosts();
+  const data: IPostDto[] = await getPosts();
   return (
     <>
       <div className="mx-auto max-w-2xl lg:mx-0">
@@ -16,9 +16,9 @@ export default async function Post() {
         </p>
       </div>
       <Divider />
-      <div className="flex flex-wrap gap-4">
-        {data.map((post: IPost) => (
-          <div key={post.id} className="basis-1/4">
+      <div className="grid grid-cols-4 gap-4">
+        {data.map((post: IPostDto) => (
+          <div key={post.id}>
             <PostCard data={post} />
           </div>
         ))}
