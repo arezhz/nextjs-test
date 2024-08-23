@@ -3,7 +3,7 @@ import { Divider } from "primereact/divider";
 export default function PostDetails({ params }: { params: { slug: string } }) {
   return (
     <div>
-      <h1 className="font-bold text-xl">{params.slug}</h1>
+      <h1 className="font-bold text-xl text-black">{params.slug}</h1>
       <Divider />
       <p  className="text-gray-500 text-sm">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat

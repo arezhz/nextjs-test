@@ -1,14 +1,10 @@
 import { Divider } from "primereact/divider";
 import PostCard from "./post-card";
+import { getPosts } from "./services/post-api";
+import { IPost } from "./models/i-post";
 
-export default function Post() {
-  const data = {
-    userId: 1,
-    id: 1,
-    title:
-      "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-    body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
-  };
+export default async function Post() {
+  const data: IPost[] = await getPosts();
   return (
     <>
       <div className="mx-auto max-w-2xl lg:mx-0">
@@ -20,8 +16,12 @@ export default function Post() {
         </p>
       </div>
       <Divider />
-      <div>
-        <PostCard data={data} />
+      <div className="flex flex-wrap gap-4">
+        {data.map((post: IPost) => (
+          <div key={post.id} className="basis-1/4">
+            <PostCard data={post} />
+          </div>
+        ))}
       </div>
     </>
   );
