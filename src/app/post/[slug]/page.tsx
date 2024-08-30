@@ -1,6 +1,9 @@
 import { Divider } from "primereact/divider";
+import { getSinglePost } from "../services/post-api.service";
+import { IPostDto } from "../models/i-post.dto";
 
-export default function PostDetails({ params }: { params: { slug: string } }) {
+export default async function PostDetails({ params }: { params: { slug: string } }) {
+  const data : IPostDto = await getSinglePost(params.slug);
   return (
     <div>
       <h1 className="font-bold text-xl text-black">{params.slug}</h1>
