@@ -8,6 +8,13 @@ export async function getMainPosts(): Promise<IPost[]> {
   return data.json();
 }
 
+export async function getMainSinglePost(param: string): Promise<IPost> {
+  const data = await fetch(`${process.env.API_BASE_URL}/posts/${param}`, {
+    next: { revalidate: 10 },
+  });
+  return data.json();
+}
+
 export async function getPosts(): Promise<IPostDto[]> {
   const data = await fetch(`${process.env.BASE_URL}/api/post`, {
     next: { revalidate: 10 },
